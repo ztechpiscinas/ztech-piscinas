@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Tech Piscinas | Construção de Piscinas em Fortaleza</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1a1a1a;
+            background-color: #F8FAFB;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #FA5B0F;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FA5B0F;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="water" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="rgba(0,168,216,0.1)" stroke-width="2"/></pattern></defs><rect width="1200" height="600" fill="url(%23water)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            color: #FA5B0F;
+            text-shadow: 0 0 30px rgba(250, 91, 15, 0.5);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 3s ease-in-out infinite;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            animation: slideInUp 1s ease-out 0.3s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #FA5B0F;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-btn:hover {
+            background: #E84A00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(250, 91, 15, 0.3);
+        }
+
+        /* ANIMAÇÕES */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(250, 91, 15, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 50px rgba(250, 91, 15, 0.8);
+            }
+        }
+
+        /* SEÇÕES */
+        .section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #FA5B0F;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* SOBRE */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #FA5B0F;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: #666666;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-text li {
+            padding: 8px 0;
+            color: #666666;
+        }
+
+        .about-text li:before {
+            content: "✓ ";
+            color: #00A8D8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* SERVIÇOS */
+        .services {
+            background: #F8FAFB;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(250, 91, 15, 0.15);
+        }
+
+        .service-card h3 {
+            color: #FA5B0F;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        /* PORTFÓLIO */
+        .portfolio {
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* DEPOIMENTOS */
+        .testimonials {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+        }
+
+        .testimonials h2 {
+            color: #FA5B0F;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #FA5B0F;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #FA5B0F;
+        }
+
+        .testimonial-city {
+            font-size: 12px;
+            color: #00A8D8;
+        }
+
+        /* CONTATO */
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        .contact-form button {
+            background: #FA5B0F;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #E84A00;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .contact-info p {
+            color: #666666;
+        }
+
+        .contact-info strong {
+            color: #FA5B0F;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 40px;
+        }
+
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 50;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section h2 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Z-Tech</div>
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>VAMOS LEVAR SEU SONHO PARA O PRÓXIMO NÍVEL</h1>
+        <p>Piscinas de luxo em Fortaleza | 35 anos de experiência | 300+ projetos realizados</p>
+        <a href="#contato" class="hero-btn">Solicitar Orçamento</a>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section about" id="sobre">
+    <h2>Sobre a Z-Tech Piscinas</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>35 Anos de Excelência</h3>
+            <p>A Z-Tech Piscinas é especializada na construção de piscinas de alta qualidade em Fortaleza, Eusébio e regiões próximas.</p>
+            <p>Com mais de 300 projetos realizados, temos experiência em todos os tipos de piscinas: convencionais, praias de água doce, lagos naturais e áreas gourmet.</p>
+            <ul>
+                <li>Entrega em 45-90 dias</li>
+                <li>Equipe especializada e certificada</li>
+                <li>Garantia em todos os serviços</li>
+                <li>Acompanhamento pós-obra</li>
+            </ul>
+        </div>
+        <div>
+            <p style="background: #00A8D8; color: white; padding: 40px; border-radius: 15px; font-size: 18px; font-weight: 700;">Transformamos quintais em oásis de luxo! 🏊‍♂️</p>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section services" id="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>🏊 Piscinas Convencionais</h3>
+            <p>Piscinas de alvenaria com acabamento de azulejo ou fibra de vidro. Totalmente personalizáveis conforme seu espaço.</p>
+        </div>
+        <div class="service-card">
+            <h3>🏖️ Praias de Água Doce</h3>
+            <p>Simulam praias naturais com águas cristalinas. Perfeitas para famílias com crianças pequenas.</p>
+        </div>
+        <div class="service-card">
+            <h3>💧 Lagos Naturais</h3>
+            <p>Espelhos d'água com paisagismo integrado. Transformam completamente o ambiente externo.</p>
+        </div>
+        <div class="service-card">
+            <h3>🍽️ Áreas Gourmet</h3>
+            <p>Piscinas com bar, churrasqueira e espaço para eventos. O complemento perfeito para sua área de lazer.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section class="section portfolio" id="portfolio">
+    <h2>Portfólio de Projetos</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #FA5B0F 0%, #00A8D8 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 1</div>
+        </div>
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00A8D8 0%, #FA5B0F 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 2</div>
+        </div>
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #FA5B0F 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 3</div>
+        </div>
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #FA5B0F 0%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 4</div>
+        </div>
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00A8D8 0%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 5</div>
+        </div>
+        <div class="portfolio-item">
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a 0%, #00A8D8 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 700;">Projeto 6</div>
+        </div>
+    </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section testimonials" id="depoimentos">
+    <h2>O Que Dizem Nossos Clientes</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <p>"Melhor decisão que tomei! Equipe profissional, entrega rápida, qualidade impecável! Voltaria a trabalhar com eles sem hesitar."</p>
+            <div class="testimonial-author">João Silva</div>
+            <div class="testimonial-city">Fortaleza</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"Construíram meu lago em 60 dias. Acabamento perfeito, detalhes impecáveis! Meu quintal virou um paraíso."</p>
+            <div class="testimonial-author">Maria Costa</div>
+            <div class="testimonial-city">Eusébio</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"35 anos de experiência se nota em tudo. Transformaram meu quintal em oásis de luxo com muito profissionalismo."</p>
+            <div class="testimonial-author">Carlos Mendes</div>
+            <div class="testimonial-city">Fortaleza</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"Minha obra atrasou por quadra chuvosa, mas a Z-Tech foi super transparente. Ficou perfeito! Recomendo demais!"</p>
+            <div class="testimonial-author">Pedro Oliveira</div>
+            <div class="testimonial-city">Fortaleza</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section contact" id="contato">
+    <h2>Entre em Contato</h2>
+    <p style="color: #666666; margin-bottom: 30px; font-size: 16px;">Solicite seu orçamento grátis agora mesmo!</p>
+    
+    <form class="contact-form" name="contact" method="POST" netlify>
+        <input type="text" name="nome" placeholder="Seu Nome" required>
+        <input type="email" name="email" placeholder="Seu Email" required>
+        <input type="tel" name="telefone" placeholder="Seu Telefone">
+        <textarea name="mensagem" placeholder="Descreva seu projeto..." rows="5" required></textarea>
+        <button type="submit">Enviar Orçamento</button>
+    </form>
+
+    <div class="contact-info">
+        <div>
+            <p><strong>📞 WhatsApp</strong><br>(85) 99862-2719</p>
+        </div>
+        <div>
+            <p><strong>📧 Email</strong><br>contato@ztechpiscinas.com.br</p>
+        </div>
+        <div>
+            <p><strong>📍 Localização</strong><br>Fortaleza & Eusébio</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Z-Tech Piscinas. Todos os direitos reservados.</p>
+    <p style="font-size: 12px; margin-top: 10px;">Construindo sonhos em água desde 1991</p>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5585998622719?text=Olá%20Z-Tech!%20Gostaria%20de%20um%20orçamento%20para%20minha%20piscina" class="whatsapp-btn" target="_blank">💬</a>
+
+</body>
+</html>
